@@ -1,0 +1,1 @@
+    cout << "BOTH $boy and $girl" << "IS ANAGRAM" << endl;
