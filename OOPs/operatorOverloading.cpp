@@ -7,30 +7,44 @@ private:
     int imaginary;
 
 public:
+    ComplexNumber()
+    {
+        real = 0;
+        imaginary = 0;
+    }
     ComplexNumber(int r, int i)
     {
-        this->real = r;
-        this->imaginary = i;
+        real = r;
+        imaginary = i;
+    }
+    ComplexNumber operator+(ComplexNumber c)
+    {
+        ComplexNumber c2;
+        c2.real = c.real + this->real;
+        c2.imaginary = c.imaginary + this->imaginary;
+        return c2;
     }
 
+    ComplexNumber operator-(ComplexNumber c)
+    {
+        ComplexNumber temp;
+        temp.real = real - c.real;
+        temp.imaginary = imaginary - c.imaginary;
+        return temp;
+    }
     void display()
     {
-        cout << " The complex numeber is : " << real << " + " << imaginary << "i";
-    }
-    ComplexNumber operator+(ComplexNumber &a)
-    {
-        ComplexNumber c(0, 0);
-        c.real = this->real + a.real;
-        c.imaginary = this->imaginary + a.imaginary;
-        return c;
+        cout << real << " + i " << imaginary;
     }
 };
+
 int main()
 {
-    ComplexNumber c1(4, 5);
+    ComplexNumber c1(4, 15);
     ComplexNumber c2(3, 9);
     ComplexNumber c3(0, 0);
-    c3 = c1 + c2;
+    // c3 = c1 + c2;
+    c3 = c1 - c2;
 
     c3.display();
     return 0;
